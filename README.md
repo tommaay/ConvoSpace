@@ -1,5 +1,4 @@
-# ConversSpace
-
+## ConvoSpace
 This is a Reddit clone type of application. 
 
 ## Work In Progress
