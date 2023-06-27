@@ -1,6 +1,7 @@
 import { getAuthSession } from '@/lib/auth'
 import { db } from '@/lib/db'
 import { SubredditValidator } from '@/lib/validators/subreddit'
+import { hyphenateString } from '@/utils'
 import { z } from 'zod'
 
 export async function POST(req: Request) {
@@ -28,6 +29,7 @@ export async function POST(req: Request) {
       data: {
         name,
         creatorId: session.user.id,
+        slug: hyphenateString(name),
       },
     })
 

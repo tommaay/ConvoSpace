@@ -9,6 +9,7 @@ import { useMutation } from "@tanstack/react-query";
 import axios, { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { hyphenateString } from "@/utils";
 
 const CreateCommunityPage = () => {
   const router = useRouter();
@@ -54,7 +55,7 @@ const CreateCommunityPage = () => {
       });
     },
     onSuccess: (data) => {
-      router.push(`/r/${data}`);
+      router.push(`/r/${hyphenateString(data)}`);
     },
   });
 
