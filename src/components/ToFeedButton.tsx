@@ -7,19 +7,24 @@ import { buttonVariants } from "./ui/Button";
 const ToFeedButton = () => {
   const pathname = usePathname();
 
-  // if path is /r/mycom, turn into /
-  // if path is /r/mycom/post/cligad6jf0003uhest4qqkeco, turn into /r/mycom
-
   const subredditPath = getSubredditPath(pathname);
 
   return (
-    <a href={subredditPath} className={buttonVariants({ variant: "ghost" })}>
+    <a
+      href={subredditPath}
+      className={buttonVariants({
+        variant: "ghost",
+        className: "!px-0 hover:!bg-transparent hover:text-blue-900",
+      })}
+    >
       <ChevronLeft className="w-4 h-4 mr-1" />
       {subredditPath === "/" ? "Back home" : "Back to community"}
     </a>
   );
 };
 
+// if path is /r/mycom, turn into /
+// if path is /r/mycom/post/cligad6jf0003uhest4qqkeco, turn into /r/mycom
 const getSubredditPath = (pathname: string) => {
   const splitPath = pathname.split("/");
 
