@@ -16,7 +16,7 @@ interface PostProps {
     votes: Vote[];
   };
   votesAmt: number;
-  subredditName: string;
+  subredditSlug: string;
   currentVote?: PartialVote;
   commentAmt: number;
 }
@@ -25,7 +25,7 @@ const Post: FC<PostProps> = ({
   post,
   votesAmt: _votesAmt,
   currentVote: _currentVote,
-  subredditName,
+  subredditSlug,
   commentAmt,
 }) => {
   const pRef = useRef<HTMLParagraphElement>(null);
@@ -41,13 +41,13 @@ const Post: FC<PostProps> = ({
 
         <div className="flex-1 w-0">
           <div className="mt-1 text-xs text-gray-500 max-h-40">
-            {subredditName ? (
+            {subredditSlug ? (
               <>
                 <a
                   className="text-sm underline text-zinc-900 underline-offset-2"
-                  href={`/r/${subredditName}`}
+                  href={`/r/${subredditSlug}`}
                 >
-                  r/{subredditName}
+                  r/{subredditSlug}
                 </a>
                 <span className="px-1">•</span>
               </>
@@ -55,7 +55,7 @@ const Post: FC<PostProps> = ({
             <span>Posted by u/{post.author.username}</span>{" "}
             {formatTimeToNow(new Date(post.createdAt))}
           </div>
-          <a href={`/r/${subredditName}/post/${post.id}`}>
+          <a href={`/r/${subredditSlug}/post/${post.id}`}>
             <h1 className="py-2 text-lg font-semibold leading-6 text-gray-900">
               {post.title}
             </h1>
@@ -76,7 +76,7 @@ const Post: FC<PostProps> = ({
 
       <div className="z-20 px-4 py-4 text-sm bg-gray-50 sm:px-6">
         <Link
-          href={`/r/${subredditName}/post/${post.id}`}
+          href={`/r/${subredditSlug}/post/${post.id}`}
           className="flex items-center gap-2 w-fit"
         >
           <MessageSquare className="w-4 h-4" /> {commentAmt} comments
