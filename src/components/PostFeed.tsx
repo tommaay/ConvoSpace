@@ -39,7 +39,7 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts, subredditSlug }) => {
         return pages.length + 1;
       },
       initialData: { pages: [initialPosts], pageParams: [1] },
-    }
+    },
   );
 
   useEffect(() => {
@@ -60,7 +60,7 @@ const PostFeed: FC<PostFeedProps> = ({ initialPosts, subredditSlug }) => {
         }, 0);
 
         const currentVote = post.votes.find(
-          (vote) => vote.userId === session?.user.id
+          (vote) => vote.userId === session?.user.id,
         );
 
         if (index === posts.length - 1) {

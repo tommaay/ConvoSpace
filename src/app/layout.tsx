@@ -24,7 +24,7 @@ export default function RootLayout({
       lang="en"
       className={cn(
         "bg-white text-slate-900 antialised light",
-        inter.className
+        inter.className,
       )}
     >
       <body className="min-h-screen pt-12 antialiased bg-slate-50">

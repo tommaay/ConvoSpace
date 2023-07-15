@@ -7,7 +7,7 @@ import dynamic from "next/dynamic";
 
 const Output = dynamic(
   async () => (await import("editorjs-react-renderer")).default,
-  { ssr: false }
+  { ssr: false },
 );
 
 interface EditorOutputProps {

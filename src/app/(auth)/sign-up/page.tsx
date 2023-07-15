@@ -15,7 +15,7 @@ const page: FC<pageProps> = ({}) => {
           href="/"
           className={cn(
             buttonVariants({ variant: "ghost" }),
-            "self-start -mt-20"
+            "self-start -mt-20",
           )}
         >
           <ChevronLeft className="w-4 h-4 mr-2" />
